@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .error {
+        color: red;
+    }
+</style>
+@model test2.Models.empolyee
+
+@Html.HiddenFor(m => m.id);
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+
+{
+    @Html.HiddenFor(m => m.id);
+    <div class="form-group">
+        <label>Name:-</label>
+        @Html.TextBoxFor(m => m.name, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(m => m.name, "", new { @class = "error" })<br />
+
+        <label>Email:-</label>
+        @Html.TextBoxFor(m => m.email, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(m => m.email, "", new { @class = "error" })<br />
+
+
+        <label>Father Name:-</label>
+        @Html.TextBoxFor(m => m.father_name, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(m => m.father_name, "", new { @class = "error" })<br />
+
+        <label>Address:-</label>
+        @Html.TextBoxFor(m => m.address, new { @class = "form-control", @required = "required" })
+        @Html.ValidationMessageFor(m => m.address, "", new { @class = "error" })<br />
+    </div>
+
+    <button type="submit" class="btn btn-success">submit</button>
+    <a href="@Url.Action("show")" class="btn btn-danger">Show</a>
+
+}
